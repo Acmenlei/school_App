@@ -18,7 +18,7 @@ class Profilecontent extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('个人信息')),
+      appBar: AppBar(title: Text('个人信息'), centerTitle: true,),
       body: Container(
           padding: EdgeInsets.all(20),
           child: ListView(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Register/regiter.dart';
 import 'package:flutter_app/Tools/LoadingDialog/LoadingDialog.dart';
 import 'package:flutter_app/Tools/Model/profile_model.dart';
 import 'package:flutter_app/Tools/Toast/Toast.dart';
@@ -18,7 +19,7 @@ class LoginState extends State<Login> {
   GlobalKey<FormState> loginFormState = GlobalKey();
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('工院寻物平台登陆')),
+      appBar: AppBar(title: Text('工院寻物平台登陆'),centerTitle: true,),
       body: Padding(
           padding: EdgeInsets.all(20),
           child: Form(
@@ -47,7 +48,7 @@ class LoginState extends State<Login> {
                       }
                     },
                     decoration: InputDecoration(
-                        labelText: '密码', prefixIcon: Icon(Icons.lock)),
+                    labelText: '密码', prefixIcon: Icon(Icons.lock)),
                     obscureText: true,
                   ),
                   Column(
@@ -103,7 +104,11 @@ class LoginState extends State<Login> {
                         width: double.infinity,
                         height: 44,
                         child: OutlineButton(
-                          onPressed: () => print('注册'),
+                          onPressed:() {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => Register())
+                            );
+                          },
                           child: Text('注册', style: TextStyle(fontSize: 15)),
                         ),
                       )

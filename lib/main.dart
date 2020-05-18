@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/components/home/home.dart';
-import 'package:flutter_app/Login/login.dart';
 import 'package:flutter_app/components/lose/lose.dart';
 import 'package:flutter_app/components/pick/pick.dart';
 import 'package:flutter_app/components/profile/profile.dart';
@@ -11,9 +10,7 @@ main() => runApp(MyApp());
 // 页面结构
 class MyApp extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
-    return MyAppcontent();
-  }
+  State<StatefulWidget> createState() => MyAppcontent();
 }
 
 class MyAppcontent extends State<MyApp> {
@@ -23,13 +20,7 @@ class MyAppcontent extends State<MyApp> {
     return MaterialApp(
       theme: ThemeData(primaryColor: Colors.yellow),
       title: 'Flutter',
-      routes: {
-        '/profile': (context) => ProfilePage(),
-        '/home': (context) => HomePage(),
-        '/lose': (context) => LosePage(),
-        '/pick': (context) => PickPage(),
-        '/login': (context) => Login()
-      },
+      debugShowCheckedModeBanner: false,
       home: Scaffold( // 标题
         bottomNavigationBar: BottomNavigationBar(
           onTap: (int index) {
