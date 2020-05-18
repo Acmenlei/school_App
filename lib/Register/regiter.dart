@@ -21,7 +21,7 @@ class RegisterContent extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('用户注册'),centerTitle: true,),
+      appBar: AppBar(title: Text('工院校园失物招领平台'),centerTitle: true,),
       body: Container(
         width: double.infinity,
       padding: EdgeInsets.all(20),
@@ -91,9 +91,9 @@ class RegisterContent extends State<Register> {
         ),
         Container(child: Row(
           children: <Widget>[
-          Radio(value: 1, groupValue: sex, onChanged: manEvent),
+          Radio(value: 1, groupValue: sex, onChanged: manEvent, activeColor: Colors.yellow),
           Text('男', style: TextStyle(fontSize: 18)),
-          Radio(value: 2, groupValue: sex, onChanged: womanEvent),
+          Radio(value: 2, groupValue: sex, onChanged: womanEvent, activeColor: Colors.yellow),
           Text('女', style: TextStyle(fontSize: 18))]
         ),),
         TextFormField(
@@ -187,8 +187,8 @@ class RegisterContent extends State<Register> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Icon(Icons.people, size: 30,),
-          Text('工院寻物平台注册', style: TextStyle(fontSize: 18),)
+          Icon(Icons.bookmark_border, size: 30,),
+          Text('工院校园失物招领平台注册', style: TextStyle(fontSize: 18),)
         ],
       ),
     );

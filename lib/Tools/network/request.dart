@@ -15,4 +15,15 @@ class HttpRequest {
       throw err;
     }
   }
+    static Future requestFormdata(String url,
+      {String method = "post", Map<String, dynamic> data}) async {
+    Options options = Options(method: method);
+    try {
+      Response result =
+          await _dio.request(url, options: options, data: data);
+      return result.data;
+    } on DioError catch (err) {
+      throw err;
+    }
+  }
 }

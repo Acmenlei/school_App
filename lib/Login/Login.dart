@@ -19,7 +19,7 @@ class LoginState extends State<Login> {
   GlobalKey<FormState> loginFormState = GlobalKey();
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('工院寻物平台登陆'),centerTitle: true,),
+      appBar: AppBar(title: Text('工院校园失物招领平台'),centerTitle: true,),
       body: Padding(
           padding: EdgeInsets.all(20),
           child: Form(
@@ -83,14 +83,11 @@ class LoginState extends State<Login> {
                               "student_id": username,
                               "password": password
                             };
-                            HttpRequest.request('/user/login',
-                                    method: 'post', parmas: data)
-                                .then((value) {
-                              ProfileData profiledata =
-                                  ProfileData(value['data'][0]);
+                            HttpRequest.request('/user/login', method: 'post', parmas: data)
+                            .then((value) {
+                              ProfileData profiledata = ProfileData(value['data'][0]);
                               Navigator.pop(context); // 这个是关闭我们的dialog
-                              Navigator.pop(
-                                  context, profiledata); // 这个是返回我们的个人信息页面
+                              Navigator.pop(context, profiledata); // 这个是返回我们的个人信息页面
                             }).catchError((onError){
                               Navigator.pop(context);
                               Toast.toast(context, msg: "登陆失败,请检查账号密码后在登陆!");

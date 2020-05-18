@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Login/Login.dart';
+import 'package:flutter_app/Tools/GlobalState/global.dart';
 import 'package:flutter_app/Tools/LoadingDialog/LoadingDialog.dart';
 import 'package:flutter_app/Tools/Model/profile_model.dart';
 import 'package:flutter_app/Tools/Toast/Toast.dart';
@@ -173,6 +174,7 @@ class Profilecontent extends State<ProfilePage> {
       // 退出成功
       Navigator.pop(context);
       Navigator.pop(context);
+      Global.destoryState(); // 清除个人信息
       // 给个提示框
       Toast.toast(context, msg: value['message']);
       });

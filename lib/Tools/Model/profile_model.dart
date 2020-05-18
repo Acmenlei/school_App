@@ -1,4 +1,6 @@
 // 个人信息数据模型
+import 'package:flutter_app/Tools/GlobalState/global.dart';
+
 class ProfileData {
   String name;
   String classId;
@@ -10,6 +12,8 @@ class ProfileData {
   String sex;
   ProfileData(Map<String, dynamic> data){
     this.name = data['student_name'];
+    Global.name = data['student_name'];
+    Global.studentId = data['student_id'];
     this.studentId = data['student_id'];
     this.classId = data['class_id'];
     this.head = data['head_portrait'];
