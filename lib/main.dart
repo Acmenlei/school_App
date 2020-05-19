@@ -3,7 +3,6 @@ import 'package:flutter_app/components/home/home.dart';
 import 'package:flutter_app/components/lose/lose.dart';
 import 'package:flutter_app/components/pick/pick.dart';
 import 'package:flutter_app/components/profile/profile.dart';
-// import './Login/Login.dart';
 // 入口函数
 main() => runApp(MyApp());
 
@@ -18,7 +17,7 @@ class MyAppcontent extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primaryColor: Colors.yellow),
+      theme: ThemeData(primaryColor: Colors.purpleAccent),
       title: 'Flutter',
       debugShowCheckedModeBanner: false,
       home: Scaffold( // 标题

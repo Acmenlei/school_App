@@ -5,12 +5,12 @@ import 'package:flutter_app/Tools/Toast/Toast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_app/Tools/network/request.dart';
 
-class LoseInfoPublish extends StatefulWidget {
+class PickInfoPublish extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => InfoPushlish();
 }
 
-class InfoPushlish extends State<LoseInfoPublish> {
+class InfoPushlish extends State<PickInfoPublish> {
   File imageSRC;
   String imageServer;
   String introduce;
@@ -21,7 +21,7 @@ class InfoPushlish extends State<LoseInfoPublish> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('寻物启事信息发布'), centerTitle: true),
+      appBar: AppBar(title: Text('失物招领信息发布'), centerTitle: true),
       body: Container(
         padding: EdgeInsets.all(20),
         child: Form(key: losePublishkey, child: getInfoPublish()),
@@ -34,21 +34,21 @@ class InfoPushlish extends State<LoseInfoPublish> {
     return ListView(
       children: <Widget>[
         Text(
-          "温馨提示：在这里发布你丢失的物品信息,同学们会帮你一起找哦~",
+          "温馨提示：在这里发布你捡到的物品信息,同学们会很感谢你的~",
           style: TextStyle(color: Colors.black54),
         ),
         SizedBox(height: 20),
         RaisedButton(
           onPressed: _openPhotos,
-          child: this.imageSRC == null ?
-            Text('点击选择丢失物品图片', style: TextStyle(color: Colors.white),)
-           : Text('已选择物品图片', style: TextStyle(color: Colors.white)),
+          child: this.imageSRC == null ?  
+           Text('点击选择捡到物品图片', style: TextStyle(color: Colors.white),)
+           : Text('已上传物品图片', style: TextStyle(color: Colors.white)),
           color: Colors.purpleAccent,
         ),
         SizedBox(height: 20),
         imageSRC == null
             ? Text(
-                'Ps: 你还未上传图片信息',
+                'Ps: 你还未上传捡到物品的图片信息',
                 style: TextStyle(color: Colors.black54),
               )
             : Image.file(imageSRC),
@@ -58,22 +58,22 @@ class InfoPushlish extends State<LoseInfoPublish> {
             onSaved: (value) => this.introduce = value,
             validator: (v) {
               if (v == null || v.length == 0) {
-                return "请输入物品的描述信息，否则将是大海捞针噢~";
+                return "请输入物品的描述信息，这将有利于同学们更好的分辨~";
               }
             },
             decoration: InputDecoration(
-                hintText: "请输入你丢失物品的描述信息...",
+                hintText: "请输入你捡到物品的描述信息...",
                 border: OutlineInputBorder(borderSide: BorderSide(width: 1)))),
         SizedBox(height: 20),
         TextFormField(
           onSaved: (value) => this.place = value,
           validator: (v){
             if(v == null || v.length == 0) {
-              return "输入地点,这样更方便查找噢";
+              return "输入捡到地点,这样更方便确认失主噢";
             }
           },
           decoration: InputDecoration(
-            labelText: '填写物品丢失地点',
+            labelText: '填写物品拾到地点',
             prefixIcon: Icon(Icons.place),
           ),
         ),
@@ -123,10 +123,11 @@ class InfoPushlish extends State<LoseInfoPublish> {
   }
   // 3. 控制日期按钮的文字显示
   Widget getBtnName(){
-    return this.selectedDate == null ? Text('请选择物品丢失日期', style: TextStyle(color: Colors.white)):
+    return this.selectedDate == null ? 
+     Text('请选择物品捡到日期', style: TextStyle(color: Colors.white)):
      Text('已选择',style: TextStyle(color: Colors.white));
   }
-  // 4. 捡到物品信息发布。
+  // 4. 失物招领信息发布。
   Widget publishBtn() {
     return RaisedButton(
     onPressed: _publishLoseInfo,
@@ -143,20 +144,19 @@ class InfoPushlish extends State<LoseInfoPublish> {
     if(this.imageSRC == null || this.introduce == null || this.introduce.length == 0 || this.place == null|| 
     this.place.length == 0 || this.telephone == null || this.telephone.length != 11 || this.selectedDate ==null
     ) return;
-    // print(Global.name);
-    // print('图片信息:$imageSRC，描述信息：$introduce，丢失地点：$place ，联系方式：$telephone, 丢失日期：$selectedDate');
+    // 开始发表
     Map<String, dynamic> loseInfoData = {
-      "loser": Global.name,
-      "loser_telephone": this.telephone,
-      "lose_img": this.imageSRC.path,
-      "lose_introduce": this.introduce,
-      "lose_place": this.place,
-      "lose_time": this.selectedDate.toString().substring(0, this.selectedDate.toString().length - 4)
+      "picker": Global.name,
+      "picker_telephone": this.telephone,
+      "pick_img": this.imageSRC.path,
+      "pick_introduce": this.introduce,
+      "pick_place": this.place,
+      "pick_time": this.selectedDate.toString().substring(0, this.selectedDate.toString().length - 4)
     };
-    HttpRequest.request('/lose/loseInfo_publish', method: 'post', parmas: loseInfoData)
+    HttpRequest.request('/pick/pickInfo_publish', method: 'post', parmas: loseInfoData)
     .then((value){
       Navigator.pop(context);
-      Toast.toast(context, msg: "你的寻物启事信息发布成功啦~");
+      Toast.toast(context, msg: "你的失物招领信息发布成功啦~");
     })
     .catchError((onError) => print(onError));
   }

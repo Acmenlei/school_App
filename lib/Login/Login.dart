@@ -61,7 +61,7 @@ class LoginState extends State<Login> {
                         width: double.infinity, // 撑满整个容器
                         height: 44,
                         child: RaisedButton(
-                          color: Colors.yellow,
+                          color: Colors.purpleAccent,
                           onPressed: () {
                             // 调用save方法触发save回调
                             loginFormState.currentState.save();
@@ -93,7 +93,7 @@ class LoginState extends State<Login> {
                               Toast.toast(context, msg: "登陆失败,请检查账号密码后在登陆!");
                             });
                           },
-                          child: Text('登陆', style: TextStyle(fontSize: 15)),
+                          child: Text('登陆', style: TextStyle(fontSize: 15, color: Colors.white)),
                         ),
                       ),
                       SizedBox(height: 5),

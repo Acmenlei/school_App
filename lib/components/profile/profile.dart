@@ -94,11 +94,7 @@ class Profilecontent extends State<ProfilePage> {
               onPressed: () async {
                 var result = await Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return Login();
-                    },
-                  ),
+                  MaterialPageRoute( builder: (context) => Login()),
                 );
                 setState(() {
                   this.profiledata = result;
@@ -130,9 +126,9 @@ class Profilecontent extends State<ProfilePage> {
               child: RaisedButton(
               onPressed: isExitLogin,
               child: Text(
-                '退出登陆',
+                '退出登陆',style: TextStyle(color: Colors.white),
               ),
-              color: Colors.yellow,
+              color: Colors.purpleAccent,
             ),
             )
           ],

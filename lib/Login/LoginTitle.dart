@@ -7,7 +7,7 @@ class GongyuanTitle extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Icon(Icons.bookmark_border),
+        Icon(Icons.person_outline),
         Text(
           '工院校园失物招领平台',
           style: TextStyle(fontSize: 20),

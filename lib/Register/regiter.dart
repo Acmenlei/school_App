@@ -91,9 +91,9 @@ class RegisterContent extends State<Register> {
         ),
         Container(child: Row(
           children: <Widget>[
-          Radio(value: 1, groupValue: sex, onChanged: manEvent, activeColor: Colors.yellow),
+          Radio(value: 1, groupValue: sex, onChanged: manEvent, activeColor: Colors.purpleAccent),
           Text('男', style: TextStyle(fontSize: 18)),
-          Radio(value: 2, groupValue: sex, onChanged: womanEvent, activeColor: Colors.yellow),
+          Radio(value: 2, groupValue: sex, onChanged: womanEvent, activeColor: Colors.purpleAccent),
           Text('女', style: TextStyle(fontSize: 18))]
         ),),
         TextFormField(
@@ -120,7 +120,7 @@ class RegisterContent extends State<Register> {
             prefixIcon: Icon(Icons.school)
           ),
         ),
-        RaisedButton(onPressed: registerEvent,color: Colors.yellow,child: Text("注册", style: TextStyle(fontSize: 16),))
+        RaisedButton(onPressed: registerEvent,color: Colors.purpleAccent,child: Text("注册", style: TextStyle(fontSize: 16, color: Colors.white),))
       ],
     );
   }
@@ -187,7 +187,7 @@ class RegisterContent extends State<Register> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Icon(Icons.bookmark_border, size: 30,),
+          Icon(Icons.bookmark_border, size: 30, color: Colors.purpleAccent,),
           Text('工院校园失物招领平台注册', style: TextStyle(fontSize: 18),)
         ],
       ),
