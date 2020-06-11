@@ -8,6 +8,7 @@ class InfoModel {
     String dateTime;
     String name;
     String publishTime;
+    int id;
   
   InfoModel.formMap(Map<String, dynamic> data){
     this.imageURL = File(data['lose_img']);
@@ -17,6 +18,7 @@ class InfoModel {
     this.telephone = data['loser_telephone'];
     this.dateTime = data['lose_time'];
     this.publishTime = data['publish_time'];
+    this.id = data['id'];
   }
   InfoModel.formPick(Map<String, dynamic> data){
     this.imageURL = File(data['pick_img']);
