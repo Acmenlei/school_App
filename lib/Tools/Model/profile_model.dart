@@ -14,6 +14,7 @@ class ProfileData {
     this.name = data['student_name'];
     Global.name = data['student_name'];
     Global.studentId = data['student_id'];
+    Global.isroot = data['isroot'];
     this.studentId = data['student_id'];
     this.classId = data['class_id'];
     this.head = data['head_portrait'];
