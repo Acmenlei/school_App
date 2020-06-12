@@ -28,5 +28,6 @@ class InfoModel {
     this.telephone = data['picker_telephone'];
     this.dateTime = data['pick_time'];
     this.publishTime = data['publish_time'];
+    this.id = data['id'];
   }
 }

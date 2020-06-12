@@ -19,7 +19,7 @@ class Losecontent extends State<LosePage> {
   void initState() {
     super.initState();
     // 后台丢失物品信息的数据请求
-    HttpRequest.request('/lose/getloseInfo').then((value){
+    HttpRequest.request('/lose/getloseInfo', parmas: {"isroot": 1}).then((value){
       List<InfoModel> loseList = [];
       for(var loseData in Map.from(value)['data']) {
         InfoModel loseModel = InfoModel.formMap(Map.from(loseData));
@@ -49,7 +49,7 @@ class Losecontent extends State<LosePage> {
             bottom: 30,
             right: 30,
             child: FloatingActionButton(
-                heroTag: "发布寻物启事",
+                heroTag: 'lose.send.page',
                 onPressed: losePublishPage,
                 backgroundColor: Colors.purpleAccent,
                 child: Icon(Icons.add, color: Colors.white),)),

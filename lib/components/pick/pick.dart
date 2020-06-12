@@ -26,7 +26,7 @@ class Pickcontent extends State<PickPage> {
   void initState() {
     super.initState();
     // 后台丢失物品信息的数据请求
-    HttpRequest.request('/pick/getpickInfo').then((value){
+    HttpRequest.request('/pick/getpickInfo', parmas: {"isroot": 1}).then((value){
       List<InfoModel> pickList = [];
       for(var loseData in Map.from(value)['data']) {
         InfoModel loseModel = InfoModel.formPick(Map.from(loseData));
@@ -46,7 +46,7 @@ class Pickcontent extends State<PickPage> {
             bottom: 30,
             right: 30,
             child: FloatingActionButton(
-                heroTag: "发布失物招领",
+                heroTag: "pick.send",
                 onPressed: pickPublishPage,
                 backgroundColor: Colors.purpleAccent,
                 child: Icon(Icons.add, color: Colors.white),)),
